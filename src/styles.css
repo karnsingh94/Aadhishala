@@ -17,6 +17,22 @@
       #ffffff;
   }
 
+  #root { min-width: 0; }
+
+  main, section, article, form, aside { min-width: 0; }
+
+  h1, h2, h3, p { overflow-wrap: anywhere; }
+
+  button:focus-visible, a:focus-visible {
+    outline: 3px solid #0747d9;
+    outline-offset: 4px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { transition: none !important; }
+  }
+
   h1,
   h2,
   h3 {
@@ -32,52 +48,83 @@
 }
 
 @layer components {
-  .top-ribbon {
-    @apply bg-gradient-to-r from-school-950 via-blue-900 to-school-700 px-5 py-3 text-center text-[15px] font-extrabold text-white;
-  }
-
   .site-header {
-    @apply sticky top-0 z-30 flex items-center justify-between gap-6 border-b border-school-100 bg-white/90 px-5 py-3.5 backdrop-blur-xl sm:px-8 lg:px-[6vw];
+    @apply sticky top-0 z-30 flex items-center justify-between border-b border-school-100 bg-white;
+    gap: clamp(1rem, 2vw, 2.5rem);
+    padding: 1rem clamp(1rem, 3.75vw, 6rem);
   }
 
   .logo-brand {
-    @apply relative shrink-0 bg-transparent p-0 focus:outline-none focus:ring-4 focus:ring-school-700/10;
+    @apply block min-w-0 bg-transparent p-0;
+    flex: 0 1 auto;
   }
 
   .logo-brand img {
-    @apply h-[64px] w-[210px] rounded-none bg-transparent object-contain p-0 sm:h-[76px] sm:w-[252px] xl:h-[88px] xl:w-[300px];
+    display: block;
+    width: clamp(180px, 21vw, 420px);
+    max-width: 100%;
+    height: auto;
   }
 
-  .brand-text {
-    @apply absolute left-[-9999px];
-  }
+  .brand-text { @apply sr-only; }
 
   .nav {
-    @apply absolute left-0 right-0 top-full z-40 hidden flex-col gap-2 border-b border-school-100 bg-white px-5 py-4 shadow-2xl lg:static lg:flex lg:flex-row lg:items-center lg:gap-3 lg:border-0 lg:bg-transparent lg:p-0 lg:shadow-none;
+    @apply absolute left-0 right-0 top-full z-40 hidden flex-col gap-2 border-b border-school-100 bg-white p-4 shadow-xl;
+    max-height: calc(100dvh - 100%);
+    overflow-y: auto;
+    overscroll-behavior: contain;
   }
 
-  .nav.mobile-open {
-    @apply flex;
-  }
+  .nav.mobile-open { display: flex; }
 
   .nav button {
-    @apply rounded-[10px] px-4 py-3 text-left text-lg font-black text-slate-700 transition hover:bg-school-50 hover:text-school-700 lg:text-center;
+    @apply rounded-xl px-4 py-3 text-left font-black text-slate-700 transition hover:bg-school-50 hover:text-school-700;
+    flex-shrink: 0;
+    min-height: 48px;
+    font-size: 18px;
+    line-height: 1.4;
+    white-space: nowrap;
   }
 
-  .nav button.active {
-    @apply bg-school-50 text-school-700;
-  }
+  .nav button.active { @apply bg-school-50 text-school-700; }
 
   .nav .demo-link {
-    @apply mt-2 grid min-h-[48px] place-items-center rounded-3xl bg-gradient-to-br from-school-950 via-school-700 to-school-600 px-9 py-0 text-[23px] font-black text-white shadow-lg shadow-school-700/25 hover:text-white lg:mt-0;
+    @apply grid place-items-center rounded-full bg-gradient-to-br from-school-950 via-school-700 to-school-600 font-black text-white shadow-lg shadow-school-700/25 hover:text-white;
+    padding: 12px 28px;
+    text-align: center;
   }
 
-  .nav .demo-link.active {
-    @apply text-white ring-4 ring-school-700/20;
-  }
+  .nav .demo-link.active { @apply text-white ring-4 ring-school-700/20; }
 
   .menu-btn {
-    @apply grid h-[46px] w-[46px] place-items-center rounded-[14px] border border-school-100 bg-white text-[28px] text-school-700 lg:hidden;
+    @apply grid h-12 w-12 shrink-0 place-items-center rounded-xl border border-school-100 bg-white text-school-700;
+  }
+
+  @media (min-width: 1280px) {
+    .site-header { padding-block: clamp(1.25rem, 1.7vw, 2rem); }
+    .nav {
+      position: static;
+      display: flex;
+      flex: 1;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      gap: clamp(0.25rem, 0.8vw, 1rem);
+      padding: 0;
+      border: 0;
+      box-shadow: none;
+      max-height: none;
+      overflow: visible;
+    }
+    .nav button {
+      padding: 12px clamp(10px, 1.1vw, 22px);
+      font-size: clamp(16px, 1.4vw, 27px);
+    }
+    .nav .demo-link {
+      padding: 10px clamp(20px, 2.2vw, 44px);
+      font-size: clamp(18px, 1.7vw, 32px);
+    }
+    .menu-btn { display: none; }
   }
 
   .page-section {
@@ -89,7 +136,7 @@
   }
 
   .heading-xl {
-    @apply mt-5 max-w-5xl text-[42px] font-black leading-[1.08] sm:text-6xl lg:text-[55px];
+    @apply mt-5 max-w-5xl text-[clamp(2rem,8vw,2.625rem)] font-black leading-[1.08] sm:text-6xl lg:text-[55px];
   }
 
   .heading-lg {
@@ -125,6 +172,6 @@
   }
 
   .form-field {
-    @apply w-full rounded-2xl border border-school-100 bg-slate-50 px-4 py-4 outline-none transition focus:border-school-700 focus:bg-white focus:ring-4 focus:ring-school-700/10;
+    @apply min-w-0 w-full text-base rounded-2xl border border-school-100 bg-slate-50 px-4 py-4 outline-none transition focus:border-school-700 focus:bg-white focus:ring-4 focus:ring-school-700/10;
   }
 }

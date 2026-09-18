@@ -46,7 +46,7 @@ export function Hero() {
         </div>
       </div>
 
-      <div className="relative min-h-[420px] overflow-hidden rounded-[28px] bg-gradient-to-br from-school-950 via-school-700 to-school-600 p-7 shadow-school">
+      <div className="relative flex min-h-[420px] flex-col gap-5 overflow-hidden rounded-[28px] bg-gradient-to-br from-school-950 via-school-700 to-school-600 p-5 sm:p-7 shadow-school">
         <div className="grid gap-5 rounded-[24px] border border-white/25 bg-white/15 p-6 text-white sm:grid-cols-2">
           <div>
             <span className="block font-bold text-blue-100">Today Collection</span>
@@ -59,17 +59,17 @@ export function Hero() {
           </div>
         </div>
 
-        <div className="absolute bottom-20 left-6 inline-flex items-center gap-3 rounded-2xl bg-white px-5 py-4 font-black text-school-950 shadow-school">
+        <div className="self-start inline-flex items-center gap-3 rounded-2xl bg-white px-5 py-4 font-black text-school-950 shadow-school">
           <Smartphone className="text-school-700" />
           Parent App Live
         </div>
 
-        <div className="absolute right-6 top-36 inline-flex items-center gap-3 rounded-2xl bg-white px-5 py-4 font-black text-school-950 shadow-school">
+        <div className="self-end inline-flex items-center gap-3 rounded-2xl bg-white px-5 py-4 font-black text-school-950 shadow-school">
           <ShieldCheck className="text-school-700" />
           Secure Records
         </div>
 
-        <div className="absolute bottom-6 left-7 right-7 grid gap-3">
+        <div className="mt-auto grid gap-3">
           <span className="h-3 rounded-full bg-white/25" />
           <span className="h-3 w-8/12 rounded-full bg-white/25" />
           <span className="h-3 w-10/12 rounded-full bg-white/25" />

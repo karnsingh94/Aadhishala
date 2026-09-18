@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@700;900&family=Nunito:wght@400;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-white font-sans text-slate-950 antialiased;
+    background:
+      radial-gradient(circle at 10% 5%, #eaf1ff 0, transparent 32%),
+      radial-gradient(circle at 92% 10%, #f4f8ff 0, transparent 28%),
+      #ffffff;
+  }
+
+  h1,
+  h2,
+  h3 {
+    @apply font-heading tracking-normal text-slate-950;
+  }
+
+  button,
+  input,
+  select,
+  textarea {
+    font: inherit;
+  }
+}
+
+@layer components {
+  .top-ribbon {
+    @apply bg-gradient-to-r from-school-950 via-blue-900 to-school-700 px-5 py-3 text-center text-[15px] font-extrabold text-white;
+  }
+
+  .site-header {
+    @apply sticky top-0 z-30 flex items-center justify-between gap-6 border-b border-school-100 bg-white/90 px-5 py-3.5 backdrop-blur-xl sm:px-8 lg:px-[6vw];
+  }
+
+  .logo-brand {
+    @apply relative shrink-0 bg-transparent p-0 focus:outline-none focus:ring-4 focus:ring-school-700/10;
+  }
+
+  .logo-brand img {
+    @apply h-[64px] w-[210px] rounded-none bg-transparent object-contain p-0 sm:h-[76px] sm:w-[252px] xl:h-[88px] xl:w-[300px];
+  }
+
+  .brand-text {
+    @apply absolute left-[-9999px];
+  }
+
+  .nav {
+    @apply absolute left-0 right-0 top-full z-40 hidden flex-col gap-2 border-b border-school-100 bg-white px-5 py-4 shadow-2xl lg:static lg:flex lg:flex-row lg:items-center lg:gap-3 lg:border-0 lg:bg-transparent lg:p-0 lg:shadow-none;
+  }
+
+  .nav.mobile-open {
+    @apply flex;
+  }
+
+  .nav button {
+    @apply rounded-[10px] px-4 py-3 text-left text-lg font-black text-slate-700 transition hover:bg-school-50 hover:text-school-700 lg:text-center;
+  }
+
+  .nav button.active {
+    @apply bg-school-50 text-school-700;
+  }
+
+  .nav .demo-link {
+    @apply mt-2 grid min-h-[48px] place-items-center rounded-3xl bg-gradient-to-br from-school-950 via-school-700 to-school-600 px-9 py-0 text-[23px] font-black text-white shadow-lg shadow-school-700/25 hover:text-white lg:mt-0;
+  }
+
+  .nav .demo-link.active {
+    @apply text-white ring-4 ring-school-700/20;
+  }
+
+  .menu-btn {
+    @apply grid h-[46px] w-[46px] place-items-center rounded-[14px] border border-school-100 bg-white text-[28px] text-school-700 lg:hidden;
+  }
+
+  .page-section {
+    @apply px-5 py-16 sm:px-8 lg:px-[6vw] lg:py-20;
+  }
+
+  .section-title {
+    @apply max-w-3xl;
+  }
+
+  .heading-xl {
+    @apply mt-5 max-w-5xl text-[42px] font-black leading-[1.08] sm:text-6xl lg:text-[55px];
+  }
+
+  .heading-lg {
+    @apply mt-4 text-3xl font-black leading-tight sm:text-4xl lg:text-5xl;
+  }
+
+  .heading-sm {
+    @apply mt-4 text-xl font-bold leading-snug text-slate-900;
+  }
+
+  .body-copy {
+    @apply text-base leading-7 text-slate-600 sm:text-lg;
+  }
+
+  .eyebrow {
+    @apply inline-flex items-center gap-2 text-sm font-black uppercase text-school-700;
+  }
+
+  .school-card {
+    @apply rounded-[20px] border border-school-100 bg-white/95 p-6 shadow-school;
+  }
+
+  .feature-icon {
+    @apply mb-5 h-11 w-11 text-school-700;
+  }
+
+  .primary-button {
+    @apply inline-grid min-h-14 place-items-center rounded-2xl border-0 bg-gradient-to-br from-school-950 via-school-700 to-school-600 px-6 font-black text-white shadow-lg shadow-school-700/25 transition hover:-translate-y-0.5 hover:shadow-xl disabled:cursor-not-allowed disabled:opacity-70;
+  }
+
+  .secondary-button {
+    @apply inline-grid min-h-14 place-items-center rounded-2xl border border-school-100 bg-white px-6 font-black text-school-700 transition hover:-translate-y-0.5 hover:bg-school-50;
+  }
+
+  .form-field {
+    @apply w-full rounded-2xl border border-school-100 bg-slate-50 px-4 py-4 outline-none transition focus:border-school-700 focus:bg-white focus:ring-4 focus:ring-school-700/10;
+  }
+}

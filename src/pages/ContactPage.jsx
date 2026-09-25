@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { toast } from 'react-toastify';
 import PageIntro from '../components/PageIntro.jsx';
 import { demoHighlights } from '../data/siteData.js';
 
@@ -137,7 +138,9 @@ export default function ContactPage() {
     const { isValid, cleanForm } = validateForm();
 
     if (!isValid) {
-      setStatus('Please fix the highlighted fields.');
+      const message = 'Please fix the highlighted fields.';
+      setStatus(message);
+      toast.error(message);
       return;
     }
 
@@ -146,11 +149,16 @@ export default function ContactPage() {
 
     try {
       const data = await sendInquiry(cleanForm);
+      const message = data.message || 'Inquiry sent successfully.';
 
-      setStatus(data.message || 'Inquiry sent successfully.');
+      setStatus(message);
+      toast.success(message);
       setForm(initialForm);
     } catch (error) {
-      setStatus(error.message || 'Inquiry could not be sent. Check mail setup.');
+      const message = error.message || 'Inquiry could not be sent. Check mail setup.';
+
+      setStatus(message);
+      toast.error(message);
     } finally {
       setIsLoading(false);
     }
@@ -165,7 +173,12 @@ export default function ContactPage() {
 
       <section className="page-section grid gap-8 lg:grid-cols-[1.1fr_0.9fr]">
         <h2 id="contact-form-heading" className="text-2xl font-extrabold text-school-950 sm:text-3xl lg:col-span-2">Contact Us</h2>
-        <form className="school-card grid gap-4" onSubmit={submitInquiry} aria-labelledby="contact-form-heading">
+        <form
+          className="school-card grid gap-4"
+          onSubmit={submitInquiry}
+          aria-labelledby="contact-form-heading"
+          noValidate
+        >
           <label className="grid gap-2 text-sm font-extrabold text-slate-700">
             School name
             <input
@@ -258,7 +271,13 @@ export default function ContactPage() {
           </button>
 
           {status ? (
-            <p className="text-sm font-black text-school-700">{status}</p>
+            <p
+              className="text-sm font-black text-school-700"
+              role="status"
+              aria-live="polite"
+            >
+              {status}
+            </p>
           ) : null}
         </form>
 

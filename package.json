@@ -4,11 +4,11 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "dev": "concurrently \"vite --host 127.0.0.1 --port 8120\" \"node server/index.js\"",
-    "client": "vite --host 127.0.0.1 --port 8120",
+    "dev": "concurrently --kill-others-on-fail \"vite --host 0.0.0.0 --port 8120 --strictPort\" \"node server/index.js\"",
+    "client": "vite --host 0.0.0.0 --port 8120 --strictPort",
     "server": "node server/index.js",
     "build": "vite build",
-    "preview": "vite preview --host 127.0.0.1 --port 8121",
+    "preview": "vite preview --host 0.0.0.0 --port 8121 --strictPort",
     "start": "node server/index.js"
   },
   "dependencies": {

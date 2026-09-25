@@ -8,7 +8,8 @@
     "client": "vite --host 127.0.0.1 --port 8120",
     "server": "node server/index.js",
     "build": "vite build",
-    "preview": "vite preview --host 127.0.0.1 --port 8121"
+    "preview": "vite preview --host 127.0.0.1 --port 8121",
+    "start": "node server/index.js"
   },
   "dependencies": {
     "@vitejs/plugin-react": "latest",

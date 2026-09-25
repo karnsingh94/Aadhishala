@@ -2,17 +2,28 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import express from 'express';
 import nodemailer from 'nodemailer';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 dotenv.config();
 
 const app = express();
 const port = process.env.PORT || 5010;
-const allowedOrigins = [
+const projectRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+const distPath = path.join(projectRoot, 'dist');
+const defaultAllowedOrigins = [
   'http://127.0.0.1:8120',
   'http://localhost:8120',
   'http://127.0.0.1:8121',
   'http://localhost:8121',
 ];
+const configuredOrigins = process.env.CORS_ORIGINS
+  ?.split(',')
+  .map((origin) => origin.trim())
+  .filter(Boolean);
+const allowedOrigins = configuredOrigins?.length
+  ? configuredOrigins
+  : defaultAllowedOrigins;
 
 app.use(cors({ origin: allowedOrigins }));
 app.use(express.json());
@@ -100,6 +111,22 @@ app.get('/api/health', (_req, res) => {
   res.json({ ok: true, mailConfigured: hasMailConfig() });
 });
 
+// Serve the production build and fall back to index.html for client routes.
+app.use(express.static(distPath));
+app.use((req, res, next) => {
+  if (req.method !== 'GET' || req.path.startsWith('/api/')) {
+    return next();
+  }
+
+  return res.sendFile(path.join(distPath, 'index.html'), (error) => {
+    if (error) next(error);
+  });
+});
+
+app.use('/api', (_req, res) => {
+  res.status(404).json({ message: 'API route not found.' });
+});
+
 app.listen(port, () => {
-  console.log(`Mail server running on http://127.0.0.1:${port}`);
+  console.log(`Aadishala server running on port ${port}`);
 });

@@ -117,11 +117,11 @@
       overflow: visible;
     }
     .nav button {
-      padding: 12px clamp(10px, 1.1vw, 22px);
+      padding: 10px clamp(10px, 1.1vw, 22px);
       font-size: clamp(16px, 1.4vw, 27px);
     }
     .nav .demo-link {
-      padding: 10px clamp(20px, 2.2vw, 44px);
+      padding: 8px clamp(20px, 2.2vw, 44px);
       font-size: clamp(18px, 1.7vw, 32px);
     }
     .menu-btn { display: none; }

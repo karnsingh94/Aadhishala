@@ -4,6 +4,7 @@ import Header from './components/Header.jsx';
 import ContactPage from './pages/ContactPage.jsx';
 import HomePage from './pages/HomePage.jsx';
 import OnboardingPage from './pages/OnboardingPage.jsx';
+import PolicyPage from './pages/PolicyPage.jsx';
 import ReviewsPage from './pages/ReviewsPage.jsx';
 import SolutionsPage from './pages/SolutionsPage.jsx';
 import WhyPage from './pages/WhyPage.jsx';
@@ -15,6 +16,10 @@ const routes = {
   '/onboarding': OnboardingPage,
   '/reviews': ReviewsPage,
   '/contact': ContactPage,
+  '/privacy-policy': PolicyPage,
+  '/terms-and-conditions': PolicyPage,
+  '/refund-policy': PolicyPage,
+  '/cancellation-policy': PolicyPage,
 };
 
 export default function App() {
@@ -32,7 +37,7 @@ export default function App() {
   return (
     <>
       <Header page={page} />
-      <Page />
+      <Page path={page} />
       <Footer />
     </>
   );

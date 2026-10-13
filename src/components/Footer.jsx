@@ -2,6 +2,13 @@ import { navItems } from '../data/siteData.js';
 import { navigate } from '../utils.js';
 
 export default function Footer() {
+  const policyLinks = [
+    { label: 'Terms & Conditions', path: '/terms-and-conditions' },
+    { label: 'Privacy Policy', path: '/privacy-policy' },
+    { label: 'Refund Policy', path: '/refund-policy' },
+    { label: 'Cancellation Policy', path: '/cancellation-policy' },
+  ];
+
   return (
     <footer className="grid gap-8 bg-school-950 px-5 py-10 text-white sm:px-8 lg:grid-cols-[1fr_1fr_auto] lg:px-[6vw]">
       <div>
@@ -47,9 +54,21 @@ export default function Footer() {
         </button>
       </div>
 
-      <p className="border-t border-white/10 pt-5 text-sm text-slate-400 lg:col-span-3">
-        Copyright @ 2026 Aadishala. All Rights Reserved.
-      </p>
+      <div className="flex flex-col gap-4 border-t border-white/10 pt-5 text-sm text-slate-400 sm:flex-row sm:items-center sm:justify-between lg:col-span-3">
+        <p>Copyright @ 2026 Aadishala. All Rights Reserved.</p>
+
+        <nav className="flex flex-wrap gap-x-5 gap-y-3" aria-label="Legal policies">
+          {policyLinks.map((item) => (
+            <a
+              key={item.path}
+              className="text-left text-sm font-semibold text-slate-300 transition hover:text-white hover:underline"
+              href={item.path}
+            >
+              {item.label}
+            </a>
+          ))}
+        </nav>
+      </div>
     </footer>
   );
 }

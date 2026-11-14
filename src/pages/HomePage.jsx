@@ -3,7 +3,8 @@ import {
   Hero,
   Metrics,
   PopularSolutions,
-  Recognition,
+  BankingPartners,
+  // Recognition,
   SolutionBlocks,
   Trusted,
   WhyPreview,
@@ -15,7 +16,8 @@ export default function HomePage() {
       <Hero />
       <Metrics />
       <Trusted />
-      <Recognition />
+      {/* <Recognition /> */}
+      <BankingPartners />
       <SolutionBlocks />
       <WhyPreview />
       <PopularSolutions />

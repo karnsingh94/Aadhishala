@@ -118,32 +118,88 @@ export function Trusted() {
   );
 }
 
-export function Recognition() {
+// export function Recognition() {
+//   return (
+//     <section className="page-section">
+//       <div className="section-title">
+//         <span className="eyebrow">
+//           <Award size={18} />
+//           Recognition
+//         </span>
+
+//         <h2 className="heading-lg">
+//           Backed by credible education and startup ecosystems
+//         </h2>
+//       </div>
+
+//       <div className="mt-9 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+//         {recognitions.map((item) => (
+//           <article key={item.title} className="school-card">
+//             <Star className="feature-icon" />
+//             <h3 className="heading-sm">{item.title}</h3>
+//             <p className="body-copy mt-3">{item.text}</p>
+//           </article>
+//         ))}
+//       </div>
+//     </section>
+//   );
+// }
+
+export function BankingPartners() {
+  const partners = [
+    {
+      title: "AU Small Finance Bank",
+      logo: "/au-bank.svg",
+    },
+    {
+      title: "Cashfree Payments",
+      logo: "/cashfree.svg",
+    },
+    {
+      title: "NTT",
+      logo: "/ntt.svg",
+    },
+    {
+      title: "Paytm",
+      logo: "/paytm.png",
+    },
+    {
+      title: "RBL Bank",
+      logo: "/rbl-bank.png",
+    },
+  ];
+
   return (
     <section className="page-section">
       <div className="section-title">
         <span className="eyebrow">
           <Award size={18} />
-          Recognition
+          Our Banking & PG Partners
         </span>
 
         <h2 className="heading-lg">
-          Backed by credible education and startup ecosystems
+          Trusted banking and payment gateway partners
         </h2>
       </div>
 
-      <div className="mt-9 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
-        {recognitions.map((item) => (
-          <article key={item.title} className="school-card">
-            <Star className="feature-icon" />
-            <h3 className="heading-sm">{item.title}</h3>
-            <p className="body-copy mt-3">{item.text}</p>
+      <div className="mt-9 grid grid-cols-2 gap-6 md:grid-cols-3 xl:grid-cols-5">
+        {partners.map((item) => (
+          <article
+            key={item.title}
+            className="school-card flex items-center justify-center"
+          >
+            <img
+              src={item.logo}
+              alt={item.title}
+              className="h-14 w-full object-contain"
+            />
           </article>
         ))}
       </div>
     </section>
   );
 }
+
 
 export function SolutionBlocks() {
   return (

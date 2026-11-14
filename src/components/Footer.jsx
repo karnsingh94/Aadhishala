@@ -26,11 +26,39 @@ export default function Footer() {
         </p>
       </div>
 
-      <div>
-        <h2 className="text-xl font-extrabold text-white">Contact Us</h2>
-        <p className="mt-4 text-base leading-7 text-slate-300">Email us for school software information and enquiries.</p>
-        <a className="mt-2 inline-block break-all text-base font-bold text-white underline underline-offset-4 hover:text-slate-300" href="mailto:info@aadishala.com">info@aadishala.com</a>
-      </div>
+     
+<div>
+  <h2 className="text-xl font-extrabold text-white">Contact Us</h2>
+
+  <p className="mt-4 text-base leading-7 text-slate-300">
+    Email us for school software information and enquiries.
+  </p>
+
+  <p className="mt-2 text-base leading-7 text-slate-300">
+    Mail id :-{" "}
+    <a
+      href="mailto:info@aadishala.com"
+      className="font-bold text-white underline underline-offset-4 hover:text-slate-300"
+    >
+      info@aadishala.com
+    </a>
+  </p>
+
+  <p className="mt-2 text-base leading-7 text-slate-300">
+    Contact number :-{" "}
+    <a
+      href="tel:9983996171"
+      className="font-bold text-white underline underline-offset-4 hover:text-slate-300"
+    >
+      9983996171
+    </a>
+  </p>
+
+  <p className="mt-2 text-base leading-7 text-slate-300">
+    Location :- Jaipur Rajasthan 302012
+  </p>
+</div>
+
 
       <div className="flex flex-col items-start gap-2">
         <h2 className="mb-2 px-3 text-xl font-extrabold text-white">Services</h2>

@@ -24,10 +24,10 @@ export const navItems = [
 ];
 
 export const metrics = [
-  { value: '1,100+', label: 'Institutions' },
-  { value: '5L+', label: 'App Downloads' },
-  { value: '10L+', label: 'Students' },
-  { value: '2,000 Cr+', label: 'Fee Payments' },
+  { value: '100+', label: 'Institutions' },
+  { value: '10K+', label: 'App Downloads' },
+  { value: '50k+', label: 'Students' },
+  { value: '100 Cr+', label: 'Fee Payments' },
   { value: '20+', label: 'Cities' },
 ];
 

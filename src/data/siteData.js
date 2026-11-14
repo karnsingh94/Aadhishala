@@ -40,6 +40,17 @@ export const schools = [
   'Sanskriti School',
 ];
 
+export const schoolPartners = [
+  {
+    name: 'Delhi Public School',
+    logo: '/images/dips 2.27.12 PM.png',
+  },
+  {
+    name: 'Springfield School',
+    logo: '/images/springfiled.jpeg',
+  },
+];
+
 export const recognitions = [
   {
     title: 'Rajasthan Innovation Award',

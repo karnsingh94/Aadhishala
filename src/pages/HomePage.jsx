@@ -5,8 +5,9 @@ import {
   PopularSolutions,
   BankingPartners,
   // Recognition,
+  SchoolPartners,
   SolutionBlocks,
-  Trusted,
+  // Trusted,
   WhyPreview,
 } from '../components/SharedSections.jsx';
 
@@ -15,7 +16,8 @@ export default function HomePage() {
     <main>
       <Hero />
       <Metrics />
-      <Trusted />
+      {/* <Trusted /> */}
+      <SchoolPartners />
       {/* <Recognition /> */}
       <BankingPartners />
       <SolutionBlocks />

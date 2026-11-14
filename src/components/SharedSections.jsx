@@ -4,6 +4,7 @@ import {
   onboardingSteps,
   popularSolutions,
   recognitions,
+  schoolPartners,
   schools,
   solutions,
 } from '../data/siteData.js';
@@ -97,21 +98,46 @@ export function Metrics() {
   );
 }
 
-export function Trusted() {
-  return (
-    <section className="bg-slate-50 px-5 py-12 text-center sm:px-8 lg:px-[6vw]">
-      <p className="text-sm font-black uppercase text-slate-900">
-        Trusted by growing institutions and school teams
-      </p>
+// export function Trusted() {
+//   return (
+//     <section className="bg-slate-50 px-5 py-12 text-center sm:px-8 lg:px-[6vw]">
+//       <p className="text-sm font-black uppercase text-slate-900">
+//         Trusted by growing institutions and school teams
+//       </p>
 
-      <div className="mt-6 flex flex-wrap justify-center gap-3">
-        {schools.map((school) => (
-          <span
-            key={school}
-            className="rounded-full border border-school-100 bg-white px-5 py-3 font-black text-school-950"
+//       <div className="mt-6 flex flex-wrap justify-center gap-3">
+//         {schools.map((school) => (
+//           <span
+//             key={school}
+//             className="rounded-full border border-school-100 bg-white px-5 py-3 font-black text-school-950"
+//           >
+//             {school}
+//           </span>
+//         ))}
+//       </div>
+//     </section>
+//   );
+// }
+
+export function SchoolPartners() {
+  return (
+    <section className="school-partners-section">
+      <div className="section-title mx-auto text-center">
+        <h2 className="heading-lg mt-0">Our School Partner</h2>
+      </div>
+
+      <div className="school-partner-grid">
+        {schoolPartners.map((partner) => (
+          <article
+            key={partner.name}
+            className="school-card flex items-center justify-center"
           >
-            {school}
-          </span>
+            <img
+              src={partner.logo}
+              alt={partner.name}
+              className="h-14 w-full object-contain"
+            />
+          </article>
         ))}
       </div>
     </section>

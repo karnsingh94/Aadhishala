@@ -134,6 +134,18 @@
     @apply px-5 py-16 sm:px-8 lg:px-[6vw] lg:py-20;
   }
 
+  .school-partners-section {
+    @apply bg-white px-5 py-12 sm:px-8 lg:px-[6vw];
+  }
+
+  .school-partner-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 17rem));
+    justify-content: center;
+    gap: 1.5rem;
+    margin: 2rem auto 0;
+  }
+
   .section-title {
     @apply max-w-3xl;
   }

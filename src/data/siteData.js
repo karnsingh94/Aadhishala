@@ -15,6 +15,27 @@ import {
   
 } from 'lucide-react';
 
+export const panelItems = [
+  {
+    label: 'School ERP',
+    path: '/school-erp',
+    badge: 'K-12 School',
+    tagline: 'Complete student admission, fees, timetable & 26 modules',
+  },
+  {
+    label: 'College ERP',
+    path: '/college-erp',
+    badge: 'Higher Ed',
+    tagline: 'Department management, CBCS semesters, labs & placements',
+  },
+  {
+    label: 'University ERP',
+    path: '/university-erp',
+    badge: 'University',
+    tagline: 'Multi-faculty governance, Ph.D. research & CoE exams',
+  },
+];
+
 export const navItems = [
   { label: 'Home', path: '/' },
   { label: 'Solutions', path: '/solutions' },

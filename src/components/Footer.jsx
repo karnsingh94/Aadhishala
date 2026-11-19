@@ -1,4 +1,4 @@
-import { navItems } from '../data/siteData.js';
+import { navItems, panelItems } from '../data/siteData.js';
 import { navigate } from '../utils.js';
 
 export default function Footer() {
@@ -63,6 +63,17 @@ export default function Footer() {
       <div className="flex flex-col items-start gap-2">
         <h2 className="mb-2 px-3 text-xl font-extrabold text-white">Services</h2>
         {navItems.map((item) => (
+          <button
+            key={item.path}
+            className="rounded-xl px-3 py-2 text-m font-bold text-slate-200 transition hover:bg-white/10 hover:text-white"
+            type="button"
+            onClick={() => navigate(item.path)}
+          >
+            {item.label}
+          </button>
+        ))}
+
+        {panelItems.map((item) => (
           <button
             key={item.path}
             className="rounded-xl px-3 py-2 text-m font-bold text-slate-200 transition hover:bg-white/10 hover:text-white"
